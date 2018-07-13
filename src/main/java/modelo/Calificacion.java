@@ -1,5 +1,8 @@
 package modelo;
 
+import org.uqbar.commons.utils.Observable;
+
+@Observable
 public class Calificacion {
 
 	private TipoCalificacion tipoCalificacion;

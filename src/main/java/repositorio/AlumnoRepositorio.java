@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Alumno;
+import modelo.Asignatura;
+import modelo.Calificacion;
+import modelo.TipoCalificacion;
 
 public class AlumnoRepositorio {
 
@@ -17,6 +20,26 @@ public class AlumnoRepositorio {
 		alumnos.add(a1);
 		alumnos.add(a2);
 		alumnos.add(a3);
+		Asignatura matematica = new Asignatura("Matematica");
+		Calificacion calificacion1 = new Calificacion(TipoCalificacion.CONCEPTUAL, "B");
+		Calificacion calificacion2 = new Calificacion(TipoCalificacion.CONCEPTUAL, "B");
+		Calificacion calificacion3 = new Calificacion(TipoCalificacion.NUMERICA, "7");
+		matematica.agregarCalificacion(calificacion1);
+		matematica.agregarCalificacion(calificacion2);
+		matematica.agregarCalificacion(calificacion3);
+		
+//		Asignatura dds = new Asignatura("DDS");
+//		Calificacion calificacionDDS1 = new Calificacion(TipoCalificacion.CONCEPTUAL, "M");
+//		Calificacion calificacionDDS2 = new Calificacion(TipoCalificacion.CONCEPTUAL, "R+");
+//		Calificacion calificacionDDS3 = new Calificacion(TipoCalificacion.NUMERICA, "2");
+//		dds.agregarCalificacion(calificacionDDS1);
+//		dds.agregarCalificacion(calificacionDDS2);
+//		dds.agregarCalificacion(calificacionDDS3);
+//		
+//		a1.agregarAsignatura(matematica);
+//		a1.agregarAsignatura(dds);
+//		a2.agregarAsignatura(dds);
+		
 	}
 
 	public static AlumnoRepositorio getInstance() {

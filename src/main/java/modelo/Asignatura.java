@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.uqbar.commons.utils.Observable;
+
+@Observable
 public class Asignatura {
 
 	private String nombre;
