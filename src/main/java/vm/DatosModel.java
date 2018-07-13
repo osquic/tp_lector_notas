@@ -18,6 +18,14 @@ public class DatosModel {
 		alumnoSeleccionado = repo.getAlumno(legajoSeleccionado);
 	}
 
+	public void habilitarEdicion() {
+		permiteEditar = true;
+	}
+
+	public void guardarDatos() {
+		repo.actualizarAlumno(alumnoSeleccionado);
+	}
+
 	// Getters y Setters
 	public String getLegajoSeleccionado() {
 		return legajoSeleccionado;
@@ -41,10 +49,6 @@ public class DatosModel {
 
 	public void setPermiteEditar(boolean valor) {
 		permiteEditar = valor;
-	}
-
-	public void habilitarEdicion() {
-		permiteEditar = true;
 	}
 
 }

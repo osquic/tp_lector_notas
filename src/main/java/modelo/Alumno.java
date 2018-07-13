@@ -59,6 +59,14 @@ public class Alumno {
 		return asignaturas;
 	}
 
+	public void setNombre(String nombre) {
+		nombre = nombre;
+	}
+
+	public void setUsuario(String usuario) {
+		usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
 		return nombre + ' ' + apellido;

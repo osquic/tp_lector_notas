@@ -1,6 +1,7 @@
 package ui;
 
 import org.uqbar.arena.layout.ColumnLayout;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -51,8 +52,9 @@ public class DatosView extends SimpleWindow<DatosModel> {
 
 		// Panel Botones
 		Panel botonesForm = new Panel(Master);
-		botonesForm.setLayout(new ColumnLayout(2));
+		botonesForm.setLayout(new HorizontalLayout());
 		new Button(botonesForm).setCaption("Editar").onClick(() -> this.getModelObject().habilitarEdicion());
+		new Button(botonesForm).setCaption("Guardar").onClick(() -> this.getModelObject().guardarDatos());
 
 		// Panel Exit
 		Panel cerrarForm = new Panel(Master);
