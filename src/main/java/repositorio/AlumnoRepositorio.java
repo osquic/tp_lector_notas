@@ -28,12 +28,19 @@ public class AlumnoRepositorio {
 
 	private List<Alumno> alumnos;
 
-	public List<Alumno> getAlumnos() {
-		return alumnos;
-	}
-
 	public boolean existeLegajo(String legajo) {
 		return alumnos.stream().anyMatch(a -> a.getLegajo().equals(legajo));
+	}
+
+	public void actualizarAlumno(Alumno alumno) {
+		Alumno alumnoViejo = this.getAlumno(alumno.getLegajo());
+		this.alumnos.remove(alumnoViejo);
+		this.alumnos.add(alumno);
+	}
+
+	// Getters y Setters
+	public List<Alumno> getAlumnos() {
+		return alumnos;
 	}
 
 	public Alumno getAlumno(String legajo) {
