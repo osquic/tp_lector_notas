@@ -4,13 +4,26 @@ import org.uqbar.commons.utils.Observable;
 
 import modelo.Alumno;
 import repositorio.AlumnoRepositorio;
-
+import modelo.Api;
 @Observable
 public class DatosModel {
+	
+	Api api = new Api();
 
 	private AlumnoRepositorio repo = AlumnoRepositorio.getInstance();
 	private String legajoSeleccionado;
 	private Alumno alumnoSeleccionado;
+	private String tokenIngresado;
+
+	public String getTokenIngresado() {
+		return tokenIngresado;
+	}
+
+	public void setTokenIngresado(String tokenIngresado) {
+		this.tokenIngresado = tokenIngresado;
+	}
+
+	private boolean siempreDisabled = false;
 
 	private boolean permiteEditar = false;
 
@@ -23,7 +36,8 @@ public class DatosModel {
 	}
 
 	public void guardarDatos() {
-		//repo.actualizarAlumno(alumnoSeleccionado);
+		repo.actualizarAlumno(alumnoSeleccionado);
+		api.putAlumnoPor(tokenIngresado, alumnoSeleccionado.getLegajo());
 	}
 
 	// Getters y Setters
@@ -49,6 +63,14 @@ public class DatosModel {
 
 	public void setPermiteEditar(boolean valor) {
 		permiteEditar = valor;
+	}
+	
+	public boolean getSiempreDisabled() {
+		return siempreDisabled;
+	}
+
+	public void setSiempreDisabled(boolean siempreDisabled) {
+		this.siempreDisabled = siempreDisabled;
 	}
 
 }

@@ -20,6 +20,7 @@ public class DatosView extends SimpleWindow<DatosModel> {
 		super(parent, new DatosModel());
 		parentView = parent;
 		this.getModelObject().setLegajoSeleccionado(((PrincipalView) parentView).getModelObject().getLegajoIngresado());
+		this.getModelObject().setTokenIngresado(((PrincipalView) parentView).getModelObject().getTokenIngresado());
 		this.getModelObject().cargarDatosAlumnoSeleccionado();
 	}
 
@@ -43,11 +44,12 @@ public class DatosView extends SimpleWindow<DatosModel> {
 		new Label(mostrarDatosForm).setText("Legajo: ");
 		TextBox legajoBox = new TextBox(mostrarDatosForm);
 		legajoBox.bindValueToProperty("alumnoSeleccionado.legajo");
-		legajoBox.bindEnabledToProperty("permiteEditar");
+		legajoBox.bindEnabledToProperty("siempreDisabled");
+		
 		// Usuario
-		new Label(mostrarDatosForm).setText("Usuario: ");
+		new Label(mostrarDatosForm).setText("Usuario Git: ");
 		TextBox usuarioBox = new TextBox(mostrarDatosForm);
-		usuarioBox.bindValueToProperty("alumnoSeleccionado.usuario");
+		usuarioBox.bindValueToProperty("alumnoSeleccionado.usuarioGit");
 		usuarioBox.bindEnabledToProperty("permiteEditar");
 
 		// Panel Botones

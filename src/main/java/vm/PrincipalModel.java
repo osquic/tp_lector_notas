@@ -14,7 +14,7 @@ public class PrincipalModel {
 	// Esto vale
 	private AlumnoRepositorio repo = AlumnoRepositorio.getInstance();
 	private String legajoIngresado;
-	private String tokenIngresado;
+	private String tokenIngresado = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 	private boolean existeLegajo;
 
 	public void chequearLegajo() {

@@ -78,4 +78,8 @@ public class Alumno {
 		return nombre + ' ' + apellido;
 	}
 
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 }

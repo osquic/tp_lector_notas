@@ -86,5 +86,12 @@ public class AlumnoRepositorio {
 	public Alumno getAlumno(String legajo) {
 		return alumnos.stream().filter(a -> a.getLegajo().equals(legajo)).findFirst().get();
 	}
+	
+	public void actualizarAlumno(Alumno unAlumno) {
+		Alumno actualizar = this.getAlumno(unAlumno.getLegajo());
+		actualizar.setNombre(unAlumno.getNombre());
+		actualizar.setUsuario(unAlumno.getUsuarioGit());
+		actualizar.setApellido(unAlumno.getApellido());
+	}
 
 }
