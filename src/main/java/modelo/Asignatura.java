@@ -9,15 +9,14 @@ import org.uqbar.commons.utils.Observable;
 public class Asignatura {
 
 	private String nombre;
-	private List<Calificacion> calificaciones;
+	private List<Calificacion> calificaciones = new ArrayList<Calificacion>();
 
 	public Asignatura(String nombre) {
 		this.nombre = nombre;
-		this.calificaciones = new ArrayList<Calificacion>();
 	}
 
 	public void agregarCalificacion(Calificacion unaCalificacion) {
-		calificaciones.add(unaCalificacion);
+		//calificaciones.add(unaCalificacion);
 	}
 
 	public Calificacion getCalificacionActual() {

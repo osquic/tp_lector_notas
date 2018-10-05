@@ -23,7 +23,7 @@ public class DatosModel {
 	}
 
 	public void guardarDatos() {
-		repo.actualizarAlumno(alumnoSeleccionado);
+		//repo.actualizarAlumno(alumnoSeleccionado);
 	}
 
 	// Getters y Setters

@@ -5,20 +5,26 @@ import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
 
+import com.google.gson.annotations.SerializedName;
+
 @Observable
 public class Alumno {
 
+	@SerializedName("first_name") 
 	private String nombre;
+	@SerializedName("last_name") 
 	private String apellido;
+	@SerializedName("code") 
 	private String legajo;
-	private String usuario;
+	@SerializedName("github_user") 
+	private String usuarioGit;
 	private List<Asignatura> asignaturas;
 
 	public Alumno(String nombre, String apellido, String legajo, String usuario) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.legajo = legajo;
-		this.usuario = usuario;
+		this.usuarioGit = usuario;
 		this.asignaturas = new ArrayList<Asignatura>();
 	}
 
@@ -26,7 +32,7 @@ public class Alumno {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.legajo = legajo;
-		this.usuario = usuario;
+		this.usuarioGit = usuario;
 		this.asignaturas = asignaturas;
 	}
 
@@ -51,8 +57,8 @@ public class Alumno {
 		return legajo;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getUsuarioGit() {
+		return usuarioGit;
 	}
 
 	public List<Asignatura> getAsignaturas() {
@@ -60,11 +66,11 @@ public class Alumno {
 	}
 
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 
-	public void setUsuario(String usuario) {
-		usuario = usuario;
+	public void setUsuario(String usuarioGit) {
+		this.usuarioGit = usuarioGit;
 	}
 
 	@Override

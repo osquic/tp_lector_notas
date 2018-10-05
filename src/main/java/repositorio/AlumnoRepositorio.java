@@ -1,25 +1,34 @@
 package repositorio;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.ClientResponse;
 
 import modelo.Alumno;
 import modelo.Asignatura;
 import modelo.Calificacion;
 import modelo.TipoCalificacion;
+import modelo.Api;
 
 public class AlumnoRepositorio {
 
 	private static AlumnoRepositorio instancia;
+	private Api request = new Api();
 
 	private AlumnoRepositorio() {
 		Alumno a1 = new Alumno("Kevin", "Gio", "123", "notengogit");
 		Alumno a2 = new Alumno("Jorgito", "Suh", "1234", "noentendogit");
 		Alumno a3 = new Alumno("Gabi", "Nose", "12345", "ojitoaSUHlado");
+		Alumno api = new Alumno("unNombre", "unApellido", "111222333", "usuarioGit");
 		alumnos = new ArrayList<Alumno>();
 		alumnos.add(a1);
 		alumnos.add(a2);
 		alumnos.add(a3);
+		alumnos.add(api);
 		Asignatura matematica = new Asignatura("Matematica");
 		Calificacion calificacion1 = new Calificacion(TipoCalificacion.CONCEPTUAL, "B");
 		Calificacion calificacion2 = new Calificacion(TipoCalificacion.CONCEPTUAL, "B");
@@ -47,6 +56,21 @@ public class AlumnoRepositorio {
 			instancia = new AlumnoRepositorio();
 		}
 		return instancia;
+	}
+	
+	public String generarJSON(String legajo) {
+		Alumno alumno = this.getAlumno(legajo);
+		Gson alumnojson = new Gson();
+		String jsonoutput = alumnojson.toJson(alumno, Alumno.class);
+		return jsonoutput;
+	}
+	
+	public Alumno alumnoPorToken(String token) {
+		ClientResponse response = request.getAlumno(token);
+        String json = response.getEntity(String.class);
+        Gson alumnoJson = new Gson();
+        Alumno unAlumno = alumnoJson.fromJson(json, Alumno.class);
+        return unAlumno;
 	}
 
 	private List<Alumno> alumnos;

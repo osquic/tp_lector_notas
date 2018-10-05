@@ -14,11 +14,13 @@ public class PrincipalModel {
 	// Esto vale
 	private AlumnoRepositorio repo = AlumnoRepositorio.getInstance();
 	private String legajoIngresado;
+	private String tokenIngresado;
 	private boolean existeLegajo;
 
 	public void chequearLegajo() {
 		// TODO Auto-generated method stub
 		// return null;
+		legajoIngresado = repo.alumnoPorToken(tokenIngresado).getLegajo();
 		existeLegajo = repo.existeLegajo(legajoIngresado);
 	}
 
@@ -29,6 +31,14 @@ public class PrincipalModel {
 
 	public void setLegajoIngresado(String legajo) {
 		legajoIngresado = legajo;
+	}
+	
+	public String getTokenIngresado() {
+		return tokenIngresado;
+	}
+
+	public void setTokenIngresado(String tokenIngresado) {
+		this.tokenIngresado = tokenIngresado;
 	}
 
 	public boolean getExisteLegajo() {

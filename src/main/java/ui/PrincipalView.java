@@ -25,8 +25,8 @@ public class PrincipalView extends SimpleWindow<PrincipalModel> {
 		new Label(Master).setText("Lector de Notas").setFontSize(14);
 
 		// Login
-		new Label(Master).setText("Ingrese su legajo").setFontSize(10);
-		new TextBox(Master).setWidth(100).bindValueToProperty("legajoIngresado");
+		new Label(Master).setText("Ingrese su Token").setFontSize(10);
+		new TextBox(Master).setWidth(100).bindValueToProperty("tokenIngresado");
 		new Button(Master).setCaption("Ingresar").onClick(() -> this.getModelObject().chequearLegajo());
 		new Label(Master);
 
